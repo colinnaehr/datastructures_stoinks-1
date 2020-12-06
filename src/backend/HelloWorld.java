@@ -30,6 +30,7 @@ public class HelloWorld extends Application {
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
         primaryStage.show();
+        //comment
     }
     public static void main(String[] args) {
         launch(args);
