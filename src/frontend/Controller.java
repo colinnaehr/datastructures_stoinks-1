@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 public class Controller extends Application {
 
@@ -23,7 +27,7 @@ public class Controller extends Application {
         launch(args);
     }
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         window = primaryStage;
         window.setTitle("creating combo box ");
         Label description_label =
@@ -31,14 +35,17 @@ public class Controller extends Application {
         String fushie[] =
                 { "One fish", "Two fish", "Red fish",
                         "Blue fish", "SARDINE" };
-//th
         ComboBox chombo = new ComboBox(FXCollections.observableArrayList(fushie));
 
-        TilePane tile_pane = new TilePane(chombo);
-
-        Scene scene = new Scene(tile_pane, 200, 200);
+        Text text = new Text();
+        text.setX(50);
+        text.setY(130);
+        text.setText("Goddamnit Goombi");
 
         // Set the scene
+        Group root = new Group(text,chombo);
+        Scene scene = new Scene(root, 200, 200);
+
         window.setScene(scene);
 
         window.show();
