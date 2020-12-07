@@ -72,17 +72,32 @@ public class HelloWorld extends Application {
 
 
 
-        btn2.setText("Retrieval Method");
+        btn2.setText("Retrieval Method 1");
         btn2.setMinSize(500, 85);
         btn2.setLayoutX(18);
         btn2.setLayoutY(300);
-        if(!btn2.isSelected()) {
-            btn2.getStyleClass().add("button1");
-        }
-        if(btn2.isSelected()){
-            btn2.getStyleClass().add("button2");
-        }
+        btn2.getStyleClass().add("button1");
+
+
         ((Group) scene2.getRoot()).getChildren().add(btn2);
+
+        //boolean adam = true;
+
+        btn2.setOnAction(new EventHandler<ActionEvent>() {
+            boolean adam = true;
+            @Override
+            public void handle(ActionEvent event) {
+
+                if(adam) {
+                    btn2.setText("Retrieval Method 2");
+                }
+                else{
+                    btn2.setText("Retrieval Method 1");
+                }
+                adam ^= true;
+
+            }
+        });
 
 
 
