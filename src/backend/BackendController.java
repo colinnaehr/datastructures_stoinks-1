@@ -40,7 +40,6 @@ public class BackendController {
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("No tickers.txt file found.");
-            e.printStackTrace();
         }
     }
 
