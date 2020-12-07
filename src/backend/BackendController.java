@@ -54,12 +54,16 @@ public class BackendController {
                 results.add(new Pair<>(top.getTicker(),top.getTotalVolume()));
                 pq.remove();
             }
-            return results;
         } else {
-            return null;
+            ArrayList<Stock> sortedData = data;
+            sortedData.sort(new StockComparator());
+            for (int i = 0; i < 5; i++){
+                Stock s = sortedData.get(i);
+                results.add(new Pair<>(s.getTicker(),s.getTotalVolume()));
+            }
         }
+        return results;
     }
-
 }
 
 class StockComparator implements Comparator<Stock>{
