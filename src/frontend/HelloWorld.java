@@ -17,7 +17,7 @@ import javafx.scene.control.Toggle;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
-
+import javafx.scene.control.TextArea;
 //import javafx.fxml.FXMLLoader;
 
 
@@ -52,6 +52,7 @@ public class HelloWorld extends Application {
         rect3.setLayoutY(150);
         rect3.getStyleClass().add("my-rect3");
         ((Group)scene2.getRoot()).getChildren().add(rect3);
+
 
         primaryStage.setTitle("Sardine");
         primaryStage.setScene(scene2);
@@ -147,6 +148,47 @@ public class HelloWorld extends Application {
                 googoo.add(name);
                 googoo.add(val);
             }
+
+
+            Button stock1 = new Button();
+            stock1.setText("1. " + goombi.get(0).getKey());
+            stock1.setMinSize(200, 75);
+            stock1.setLayoutX(600);
+            stock1.setLayoutY(220);
+            stock1.getStyleClass().add("stockbox");
+            ((Group) scene2.getRoot()).getChildren().add(stock1);
+
+            Button stock2 = new Button();
+            stock2.setText("2. " + goombi.get(1).getKey());
+            stock2.setMinSize(200, 75);
+            stock2.setLayoutX(600);
+            stock2.setLayoutY(335);
+            stock2.getStyleClass().add("stockbox");
+            ((Group) scene2.getRoot()).getChildren().add(stock2);
+
+            Button stock3 = new Button();
+            stock3.setText("3. " + goombi.get(2).getKey());
+            stock3.setMinSize(200, 75);
+            stock3.setLayoutX(600);
+            stock3.setLayoutY(450);
+            stock3.getStyleClass().add("stockbox");
+            ((Group) scene2.getRoot()).getChildren().add(stock3);
+
+            Button stock4 = new Button();
+            stock4.setText("4. " + goombi.get(3).getKey());
+            stock4.setMinSize(200, 75);
+            stock4.setLayoutX(600);
+            stock4.setLayoutY(565);
+            stock4.getStyleClass().add("stockbox");
+            ((Group) scene2.getRoot()).getChildren().add(stock4);
+
+            Button stock5 = new Button();
+            stock5.setText("5. " + goombi.get(4).getKey());
+            stock5.setMinSize(200, 75);
+            stock5.setLayoutX(600);
+            stock5.setLayoutY(680);
+            stock5.getStyleClass().add("stockbox");
+            ((Group) scene2.getRoot()).getChildren().add(stock5);
 
 
 

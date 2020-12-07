@@ -38,6 +38,7 @@
     -fx-display: inline-block;
     -fx-font-size: 32px;
 
+
 }
 
 .button1:selected {
@@ -50,5 +51,26 @@
     -fx-text-decoration: none;
     -fx-display: inline-block;
     -fx-font-size: 32px;
+    -fx-border-width: 5px;
+    -fx-border-style: solid;
+    -fx-border-color: white;
+
+}
+
+.stockbox {
+    -fx-aligntment: center;
+    -fx-background-color: white;
+    -fx-border: none;
+    -fx-text-fill: coral;
+    -fx-font-family: "Comic Sans MS";
+
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 32px;
+    -fx-border-width: 5px;
+    -fx-border-style: solid;
+    -fx-border-color: coral;
+    -fx-background-insets: 0;
 
 }
