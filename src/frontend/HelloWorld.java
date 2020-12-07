@@ -79,7 +79,7 @@ public class HelloWorld extends Application {
         btn2.setText("Retrieval Method 1");
         btn2.setMinSize(500, 85);
         btn2.setLayoutX(18);
-        btn2.setLayoutY(185);
+        btn2.setLayoutY(700);
         btn2.getStyleClass().add("button1");
 
         ((Group) scene2.getRoot()).getChildren().add(btn2);
@@ -153,14 +153,20 @@ public class HelloWorld extends Application {
         });
 
 
-
+        Button fetchButton = new Button();
+        fetchButton.setText("Fetch Data");
+        fetchButton.setMinSize(500, 85);
+        fetchButton.setLayoutX(18);
+        fetchButton.setLayoutY(185);
+        fetchButton.getStyleClass().add("button1");
+        ((Group)scene2.getRoot()).getChildren().add(fetchButton);
 
         Button btn = new Button();
-        btn.setText("Fetch Data");
+        btn.setText("Start");
         btn.setMinSize(500, 85);
-        btn.setLayoutX(18);
+        btn.setLayoutX(635);
         btn.setLayoutY(700);
-        btn.getStyleClass().add("button1");
+        btn.getStyleClass().add("button2");
         ((Group)scene2.getRoot()).getChildren().add(btn);
         btn.setOnAction(e -> {
             // Shaddy's List Function
@@ -202,7 +208,7 @@ public class HelloWorld extends Application {
                 stock1.setText("1. " + goombi.get(0).getKey());
                 stock1.setMinSize(200, 75);
                 stock1.setLayoutX(600);
-                stock1.setLayoutY(220);
+                stock1.setLayoutY(190);
                 stock1.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock1);
 
@@ -210,7 +216,7 @@ public class HelloWorld extends Application {
                 stock2.setText("2. " + goombi.get(1).getKey());
                 stock2.setMinSize(200, 75);
                 stock2.setLayoutX(600);
-                stock2.setLayoutY(335);
+                stock2.setLayoutY(290);
                 stock2.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock2);
 
@@ -218,7 +224,7 @@ public class HelloWorld extends Application {
                 stock3.setText("3. " + goombi.get(2).getKey());
                 stock3.setMinSize(200, 75);
                 stock3.setLayoutX(600);
-                stock3.setLayoutY(450);
+                stock3.setLayoutY(390);
                 stock3.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock3);
 
@@ -226,7 +232,7 @@ public class HelloWorld extends Application {
                 stock4.setText("4. " + goombi.get(3).getKey());
                 stock4.setMinSize(200, 75);
                 stock4.setLayoutX(600);
-                stock4.setLayoutY(565);
+                stock4.setLayoutY(490);
                 stock4.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock4);
 
@@ -234,7 +240,7 @@ public class HelloWorld extends Application {
                 stock5.setText("5. " + goombi.get(4).getKey());
                 stock5.setMinSize(200, 75);
                 stock5.setLayoutX(600);
-                stock5.setLayoutY(680);
+                stock5.setLayoutY(590);
                 stock5.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock5);
 

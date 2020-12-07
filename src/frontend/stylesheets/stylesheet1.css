@@ -104,3 +104,18 @@
     -fx-background-insets: 0;
 
 }
+
+.button2 {
+    -fx-aligntment: center;
+    -fx-background-color: white;
+    -fx-border: none;
+    -fx-text-fill: coral;
+    -fx-font-family: "Comic Sans MS";
+
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 32px;
+
+
+}
