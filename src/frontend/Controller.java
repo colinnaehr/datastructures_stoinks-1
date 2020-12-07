@@ -1,15 +1,19 @@
 package frontend;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
+import javafx.scene.layout.*;
 
 public class Controller extends Application {
 
@@ -21,30 +25,23 @@ public class Controller extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
+        window.setTitle("creating combo box ");
+        Label description_label =
+                new Label("Combo madam president");
+        String fushie[] =
+                { "One fish", "Two fish", "Red fish",
+                        "Blue fish", "SARDINE" };
 
-        Button btn1 = new Button();
-        Button btn2 = new Button();
+        ComboBox chombo = new ComboBox(FXCollections.observableArrayList(fushie));
 
-        btn1.setText("I'm a cat john");
-        btn1.setOnAction(e -> window.setScene(main));
+        TilePane tile_pane = new TilePane(chombo);
 
-        btn2.setText("I eat, it's what I do");
-        btn2.setOnAction(e -> window.setScene(home));
+        Scene scene = new Scene(tile_pane, 200, 200);
 
-        VBox l1 = new VBox(20);
-        l1.getChildren().add(btn1);
+        // Set the scene
+        window.setScene(scene);
 
-        VBox l2 = new VBox(20);
-        l2.getChildren().add(btn2);
+        window.show();
 
-        home = new Scene(l1, 1250, 800);
-        home.getStylesheets().add("test.css");
-        main = new Scene(l2, 1250, 800);
-        main.getStylesheets().add("test.css");
-
-
-        primaryStage.setTitle("Test");
-        primaryStage.setScene(home);
-        primaryStage.show();
     }
 }
