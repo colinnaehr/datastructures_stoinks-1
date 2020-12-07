@@ -145,17 +145,17 @@ public class HelloWorld extends Application {
             ArrayList<Pair<String,Long>> goombi = new ArrayList<>();
             if(button_1.isSelected()){
                 bc.fetchStocks();
-                goombi = bc.volumeQuery(btn2.isSelected());
+                goombi = bc.volumeQuery(btn2.isSelected(),true);
                 buttonSel = true;
             }
             else if(button_2.isSelected()){
                 bc.fetchStocks();
-                goombi = bc.volumeQuery(btn2.isSelected());
+                goombi = bc.volumeQuery(btn2.isSelected(),true);
                 buttonSel = true;
             }
             else if(button_3.isSelected()){
                 bc.fetchStocks();
-                goombi = bc.volumeQuery(btn2.isSelected());
+                goombi = bc.volumeQuery(btn2.isSelected(),true);
                 buttonSel = true;
             }
             else{
