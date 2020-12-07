@@ -1,4 +1,4 @@
-package backend;
+package frontend;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.Group;
 
 public class HelloWorld extends Application {
 
@@ -25,7 +27,16 @@ public class HelloWorld extends Application {
         StackPane root = new StackPane();
         root.getChildren().add(btn);
 
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root, 1250, 800);
+        scene.getStylesheets().add("test.css");
+        Rectangle rect = new Rectangle(1250,800);
+        rect.setLayoutX(1250);
+        rect.setLayoutY(200);
+        //rect.getStyleClass.add("my-rect");
+        //((Group)scene.getRoot()).getChildren().add(rect);
+
+
+
 
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
