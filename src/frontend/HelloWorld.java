@@ -9,6 +9,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
+import javafx.scene.text.Text;
+import javafx.scene.text.Font;
+
 //import javafx.fxml.FXMLLoader;
 
 
@@ -22,11 +25,6 @@ public class HelloWorld extends Application {
 
         Scene scene = new Scene(root, 1250, 800);
 
-        //((Group)scene.getRoot()).getChildren().add(rect);
-
-
-
-
 
 
         Scene scene2 = new Scene(new Group());
@@ -37,13 +35,29 @@ public class HelloWorld extends Application {
         rect.getStyleClass().add("my-rect");
         ((Group)scene2.getRoot()).getChildren().add(rect);
 
-        primaryStage.setTitle("Hello World!");
+        Rectangle rect2 = new Rectangle(1250,150);
+        rect.setLayoutX(0);
+        rect.setLayoutY(0);
+        rect2.getStyleClass().add("my-rect2");
+        ((Group)scene2.getRoot()).getChildren().add(rect2);
+
+        primaryStage.setTitle("Sardine");
         primaryStage.setScene(scene2);
         primaryStage.show();
 
+        Text t = new Text();
+        t.setText("Sardine");
+        t.setLayoutX(430);
+        t.setLayoutY(105);
+        t.getStyleClass().add("title");
+        //t.setFill(Color.WHITE);
+        ((Group)scene2.getRoot()).getChildren().add(t);
+
         Button btn = new Button();
         btn.setText("Say 'Hello World'");
-        root.getChildren().add(btn);
+        ((Group)scene2.getRoot()).getChildren().add(btn);
+
+
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
