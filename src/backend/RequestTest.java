@@ -6,8 +6,9 @@ public class RequestTest {
     public static void main(String[] args) {
         BackendController controller = new BackendController();
         System.out.println(new File(".").getAbsolutePath());
-//        controller.fetchStocks();;
-
-//        System.out.println(controller.data.get(0).getTotalVolume());
+        controller.fetchStocks();;
+        System.out.println(controller.data.get(0).getTotalVolume());
+        System.out.println(controller.data.get(1).getTotalVolume());
+        System.out.println(controller.data.get(2).getTotalVolume());
     }
 }
