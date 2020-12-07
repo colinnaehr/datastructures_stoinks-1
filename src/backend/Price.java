@@ -3,7 +3,7 @@ package backend;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DayPriceData {
+public class Price {
     @SerializedName("date")
     @Expose
     private Integer date;
