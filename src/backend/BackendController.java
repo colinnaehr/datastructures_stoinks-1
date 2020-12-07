@@ -1,7 +1,6 @@
 package backend;
 
 import javafx.util.Pair;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
@@ -29,10 +28,9 @@ public class BackendController {
                     Stock stonk = handler.getPrices(ticker);
                     stonk.setTicker(ticker);
                     System.out.println(stonk.getTicker());
-//                    System.out.println(stonk.getTotalVolume());
                     stocks.add(stonk);
                 } catch (Exception e){
-                    System.out.println("Error");
+                    System.out.printf("Error, could not fetch stock ticker: %s%n",ticker);
                 }
 
             }
@@ -45,24 +43,14 @@ public class BackendController {
     public ArrayList<Pair<String,Long>> volumeQuery(boolean priorityQueue, boolean highest){
         ArrayList<Pair<String,Long>> results = new ArrayList<>();
         if (priorityQueue){
-            if (highest){
-                PriorityQueue<Stock> pq = new PriorityQueue<>(new StockTotalVolumeComparatorHigh());
-                pq.addAll(stocks);
-                for (int i = 0; i < 5; i++){
-                    Stock top = pq.peek();
-                    assert top != null;
-                    results.add(new Pair<>(top.getTicker(),top.getTotalVolume()));
-                    pq.remove();
-                }
-            } else {
-                PriorityQueue<Stock> pq = new PriorityQueue<>(new StockTotalVolumeComparatorLow());
-                pq.addAll(stocks);
-                for (int i = 0; i < 5; i++){
-                    Stock top = pq.peek();
-                    assert top != null;
-                    results.add(new Pair<>(top.getTicker(),top.getTotalVolume()));
-                    pq.remove();
-                }
+            PriorityQueue<Stock> pq;
+            pq = highest ? new PriorityQueue<>(new StockTotalVolumeComparatorHigh()) : new PriorityQueue<>(new StockTotalVolumeComparatorLow());
+            pq.addAll(stocks);
+            for (int i = 0; i < 5; i++){
+                Stock top = pq.peek();
+                assert top != null;
+                results.add(new Pair<>(top.getTicker(),top.getTotalVolume()));
+                pq.remove();
             }
         } else {
             ArrayList<Stock> sortedData = stocks;
@@ -120,7 +108,7 @@ public class BackendController {
     public ArrayList<Pair<String,Integer>> relativeStrength(String date, boolean treeMap, boolean highest , int rsiPeriod) {
         date += " 9:30:00";
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date d = null;
+        Date d;
         try {
             d = sdf.parse(date);
         } catch (ParseException e) {
@@ -128,6 +116,8 @@ public class BackendController {
             return null;
         }
         long selectedDateSeconds = d.getTime() / 1000;
+
+
         if (treeMap){
             // tree map of tree maps
             var stockRSIs = new TreeMap<String,TreeMap<Long,Integer>>();
@@ -144,7 +134,7 @@ public class BackendController {
             var stockRSIsAtTime = new ArrayList<Pair<String,Integer>>();
             for (Stock stock : stocks){
                 int stockRsiAtTime = stockRSIs.get(stock.getTicker()).get(selectedDateSeconds);
-                stockRSIsAtTime.add(new Pair<String,Integer>(stock.getTicker(),stockRsiAtTime));
+                stockRSIsAtTime.add(new Pair<>(stock.getTicker(),stockRsiAtTime));
                 stockRSIsAtTime.sort(new StockRSIComparator());
             }
             var returned = new ArrayList<Pair<String,Integer>>();
@@ -153,6 +143,8 @@ public class BackendController {
             }
             return returned;
         } else {
+
+
             // hash map of hash maps
             var stockRSIs = new HashMap<String,HashMap<Long,Integer>>();
             for (Stock stock : stocks){
