@@ -90,7 +90,7 @@ public class HelloWorld extends Application {
 
 
         // Shaddy's List Function
-        /*
+
         BackendController bc = new BackendController();
         bc.fetchStocks();
         ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(true);
@@ -99,11 +99,11 @@ public class HelloWorld extends Application {
         for(int i = 0; i < 5; i++) {
             Text name = new Text();
             Text val = new Text();
-            name.setX(20);
-            name.setY(i*40 +40);
+            name.setX(600);
+            name.setY(i*40 +300);
             name.setText(goombi.get(i).getKey());
-            val.setX(60);
-            val.setY(i*40 + 40);
+            val.setX(900);
+            val.setY(i*40 + 300);
             String temp = "" + goombi.get(i).getValue();
             val.setText(temp);
             googoo.add(name);
@@ -113,8 +113,10 @@ public class HelloWorld extends Application {
 
 
         //Set the scene
-        ((Group) scene2.getRoot()).getChildren().add(googoo.get(0));
-*/
+        for(int i = 0; i < googoo.size(); i++) {
+            ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
+        }
+
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
