@@ -1,5 +1,6 @@
 package frontend;
 
+import backend.BackendController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,6 +13,9 @@ import javafx.scene.Group;
 import javafx.scene.text.Text;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Toggle;
+import javafx.util.Pair;
+
+import java.util.ArrayList;
 
 //import javafx.fxml.FXMLLoader;
 
@@ -85,7 +89,32 @@ public class HelloWorld extends Application {
         ((Group) scene2.getRoot()).getChildren().add(btn2);
 
 
+        // Shaddy's List Function
+        /*
+        BackendController bc = new BackendController();
+        bc.fetchStocks();
+        ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(true);
 
+        ArrayList<Text> googoo = new ArrayList<>();
+        for(int i = 0; i < 5; i++) {
+            Text name = new Text();
+            Text val = new Text();
+            name.setX(20);
+            name.setY(i*40 +40);
+            name.setText(goombi.get(i).getKey());
+            val.setX(60);
+            val.setY(i*40 + 40);
+            String temp = "" + goombi.get(i).getValue();
+            val.setText(temp);
+            googoo.add(name);
+            googoo.add(val);
+        }
+
+
+
+        //Set the scene
+        ((Group) scene2.getRoot()).getChildren().add(googoo.get(0));
+*/
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
