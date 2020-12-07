@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
@@ -68,7 +69,7 @@ public class HelloWorld extends Application {
         btn2.setText("Retrieval Method 1");
         btn2.setMinSize(500, 85);
         btn2.setLayoutX(18);
-        btn2.setLayoutY(300);
+        btn2.setLayoutY(185);
         btn2.getStyleClass().add("button1");
 
         ((Group) scene2.getRoot()).getChildren().add(btn2);
@@ -88,13 +89,33 @@ public class HelloWorld extends Application {
             }
         });
 
+        ToggleGroup TheGroup = new ToggleGroup();
+        ToggleButton button_1 = new ToggleButton("option 1");
+        ToggleButton button_2 = new ToggleButton("option 2");
+        ToggleButton button_3 = new ToggleButton("option 3");
+        button_1.setToggleGroup(TheGroup);
+        button_2.setToggleGroup(TheGroup);
+        button_3.setToggleGroup(TheGroup);
+        button_1.setLayoutX(18);
+        button_1.setLayoutY(350);
+        button_2.setLayoutX(18);
+        button_2.setLayoutY(450);
+        button_3.setLayoutX(18);
+        button_3.setLayoutY(550);
+        button_1.setMinSize(500, 85);
+        button_2.setMinSize(500, 85);
+        button_3.setMinSize(500, 85);
+        button_1.getStyleClass().add("button1");
+        button_2.getStyleClass().add("button1");
+        button_3.getStyleClass().add("button1");
+        ((Group) scene2.getRoot()).getChildren().addAll(button_1, button_2, button_3);
 
 
         Button btn = new Button();
         btn.setText("Fetch Data");
         btn.setMinSize(500, 85);
         btn.setLayoutX(18);
-        btn.setLayoutY(190);
+        btn.setLayoutY(700);
         btn.getStyleClass().add("button1");
         ((Group)scene2.getRoot()).getChildren().add(btn);
         btn.setOnAction(e -> {
