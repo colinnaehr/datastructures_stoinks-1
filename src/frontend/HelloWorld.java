@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
 import javafx.scene.text.Text;
-import javafx.scene.text.Font;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.Toggle;
 
 //import javafx.fxml.FXMLLoader;
 
@@ -36,10 +37,16 @@ public class HelloWorld extends Application {
         ((Group)scene2.getRoot()).getChildren().add(rect);
 
         Rectangle rect2 = new Rectangle(1250,150);
-        rect.setLayoutX(0);
-        rect.setLayoutY(0);
+        rect2.setLayoutX(0);
+        rect2.setLayoutY(0);
         rect2.getStyleClass().add("my-rect2");
         ((Group)scene2.getRoot()).getChildren().add(rect2);
+
+        Rectangle rect3 = new Rectangle(1250,20);
+        rect3.setLayoutX(0);
+        rect3.setLayoutY(150);
+        rect3.getStyleClass().add("my-rect3");
+        ((Group)scene2.getRoot()).getChildren().add(rect3);
 
         primaryStage.setTitle("Sardine");
         primaryStage.setScene(scene2);
@@ -54,20 +61,29 @@ public class HelloWorld extends Application {
         ((Group)scene2.getRoot()).getChildren().add(t);
 
         Button btn = new Button();
-        btn.setText("Get Stocks with Heap");
+        btn.setText("Fetch Data");
         btn.setMinSize(500, 85);
-        btn.setLayoutX(375);
+        btn.setLayoutX(18);
         btn.setLayoutY(190);
         btn.getStyleClass().add("button1");
         ((Group)scene2.getRoot()).getChildren().add(btn);
 
-        Button btn2 = new Button();
-        btn2.setText("Get Stocks with Tree");
+        ToggleButton btn2 = new ToggleButton();
+
+
+
+        btn2.setText("Retrieval Method");
         btn2.setMinSize(500, 85);
-        btn2.setLayoutX(375);
+        btn2.setLayoutX(18);
         btn2.setLayoutY(300);
-        btn2.getStyleClass().add("button1");
-        ((Group)scene2.getRoot()).getChildren().add(btn2);
+        if(!btn2.isSelected()) {
+            btn2.getStyleClass().add("button1");
+        }
+        if(btn2.isSelected()){
+            btn2.getStyleClass().add("button2");
+        }
+        ((Group) scene2.getRoot()).getChildren().add(btn2);
+
 
 
         btn.setOnAction(new EventHandler<ActionEvent>() {

@@ -7,6 +7,11 @@
 
 }
 
+.my-rect3 {
+    -fx-fill: white;
+
+}
+
 .title {
     -fx-font-family: "Comic Sans MS";
     -fx-text-alignment: center;
@@ -17,6 +22,20 @@
 .button1 {
     -fx-aligntment: center;
     -fx-background-color: coral;
+    -fx-border: none;
+    -fx-text-fill: white;
+    -fx-font-family: "Comic Sans MS";
+
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 32px;
+
+}
+
+.button1:selected {
+    -fx-aligntment: center;
+    -fx-background-color: lightskyblue;
     -fx-border: none;
     -fx-text-fill: white;
     -fx-font-family: "Comic Sans MS";
