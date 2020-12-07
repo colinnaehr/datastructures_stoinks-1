@@ -54,6 +54,10 @@ public class HelloWorld extends Application {
         rect3.getStyleClass().add("my-rect3");
         ((Group)scene2.getRoot()).getChildren().add(rect3);
 
+        ImageView iv = new ImageView();
+
+
+
 
         primaryStage.setTitle("Sardine");
         primaryStage.setScene(scene2);
