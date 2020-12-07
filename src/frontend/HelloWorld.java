@@ -108,26 +108,26 @@ public class HelloWorld extends Application {
         ((Group)scene2.getRoot()).getChildren().add(dataMethod);
 
         ToggleGroup TheGroup = new ToggleGroup();
-        ToggleButton button_1a = new ToggleButton("option 1a");
-        ToggleButton button_1b = new ToggleButton("option 1b");
+        ToggleButton button_1 = new ToggleButton("option 1");
+        //ToggleButton button_1 = new ToggleButton("option 1");
         ToggleButton button_2 = new ToggleButton("option 2");
         ToggleButton button_3 = new ToggleButton("option 3");
-        button_1a.setToggleGroup(TheGroup);
+        button_1.setToggleGroup(TheGroup);
         button_2.setToggleGroup(TheGroup);
         button_3.setToggleGroup(TheGroup);
-        button_1a.setLayoutX(18);
-        button_1a.setLayoutY(350);
+        button_1.setLayoutX(18);
+        button_1.setLayoutY(350);
         button_2.setLayoutX(18);
         button_2.setLayoutY(450);
         button_3.setLayoutX(18);
         button_3.setLayoutY(550);
-        button_1a.setMinSize(500, 85);
+        button_1.setMinSize(500, 85);
         button_2.setMinSize(500, 85);
         button_3.setMinSize(500, 85);
-        button_1a.getStyleClass().add("button1");
+        button_1.getStyleClass().add("button1");
         button_2.getStyleClass().add("button1");
         button_3.getStyleClass().add("button1");
-        ((Group) scene2.getRoot()).getChildren().addAll(button_1a, button_2, button_3);
+        ((Group) scene2.getRoot()).getChildren().addAll(button_1, button_2, button_3);
 
 
         Button btn = new Button();
