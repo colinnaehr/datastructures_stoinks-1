@@ -8,7 +8,6 @@ public class Stock {
 
     private String ticker = "";
 
-
     @SerializedName("prices")
     @Expose
     private List<Price> prices = null;
