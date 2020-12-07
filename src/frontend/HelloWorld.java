@@ -56,7 +56,7 @@ public class HelloWorld extends Application {
         Button btn = new Button();
         btn.setText("Get Stocks with Heap");
         btn.setMinSize(500, 85);
-        btn.setLayoutX(75);
+        btn.setLayoutX(375);
         btn.setLayoutY(190);
         btn.getStyleClass().add("button1");
         ((Group)scene2.getRoot()).getChildren().add(btn);
@@ -64,7 +64,7 @@ public class HelloWorld extends Application {
         Button btn2 = new Button();
         btn2.setText("Get Stocks with Tree");
         btn2.setMinSize(500, 85);
-        btn2.setLayoutX(75);
+        btn2.setLayoutX(375);
         btn2.setLayoutY(300);
         btn2.getStyleClass().add("button1");
         ((Group)scene2.getRoot()).getChildren().add(btn2);
