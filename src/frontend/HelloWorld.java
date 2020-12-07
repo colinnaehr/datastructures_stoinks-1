@@ -131,71 +131,84 @@ public class HelloWorld extends Application {
         btn.setOnAction(e -> {
             // Shaddy's List Function
             BackendController bc = new BackendController();
-            bc.fetchStocks();
-            System.out.println(btn2.isSelected());
-            ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(btn2.isSelected());
 
-            ArrayList<Text> googoo = new ArrayList<>();
-            for(int i = 0; i < 5; i++) {
-                Text name = new Text();
-                Text val = new Text();
-                name.setX(600);
-                name.setY(i*40 +300);
-                name.setText(goombi.get(i).getKey());
-                val.setX(900);
-                val.setY(i*40 + 300);
-                String temp = "" + goombi.get(i).getValue();
-                val.setText(temp);
-                googoo.add(name);
-                googoo.add(val);
+            boolean buttonSel = false;
+            ArrayList<Pair<String,Long>> goombi = new ArrayList<>();
+            if(button_1.isSelected()){
+                bc.fetchStocks();
+                goombi = bc.volumeQuery(btn2.isSelected());
+                buttonSel = true;
             }
+            else if(button_2.isSelected()){
+                bc.fetchStocks();
+                goombi = bc.volumeQuery(btn2.isSelected());
+                buttonSel = true;
+            }
+            else if(button_3.isSelected()){
+                bc.fetchStocks();
+                goombi = bc.volumeQuery(btn2.isSelected());
+                buttonSel = true;
+            }
+            else{
+                System.out.println("Better luck next time goombi");
+            }
+            if(buttonSel) {
+                ArrayList<Text> googoo = new ArrayList<>();
+
+                for (int i = 0; i < 5; i++) {
+                    Text name = new Text();
+                    Text val = new Text();
+                    String temp = "" + goombi.get(i).getValue();
+                    googoo.add(name);
+                    googoo.add(val);
+                }
 
 
-            Button stock1 = new Button();
-            stock1.setText("1. " + goombi.get(0).getKey());
-            stock1.setMinSize(200, 75);
-            stock1.setLayoutX(600);
-            stock1.setLayoutY(220);
-            stock1.getStyleClass().add("stockbox");
-            ((Group) scene2.getRoot()).getChildren().add(stock1);
+                Button stock1 = new Button();
+                stock1.setText("1. " + goombi.get(0).getKey());
+                stock1.setMinSize(200, 75);
+                stock1.setLayoutX(600);
+                stock1.setLayoutY(220);
+                stock1.getStyleClass().add("stockbox");
+                ((Group) scene2.getRoot()).getChildren().add(stock1);
 
-            Button stock2 = new Button();
-            stock2.setText("2. " + goombi.get(1).getKey());
-            stock2.setMinSize(200, 75);
-            stock2.setLayoutX(600);
-            stock2.setLayoutY(335);
-            stock2.getStyleClass().add("stockbox");
-            ((Group) scene2.getRoot()).getChildren().add(stock2);
+                Button stock2 = new Button();
+                stock2.setText("2. " + goombi.get(1).getKey());
+                stock2.setMinSize(200, 75);
+                stock2.setLayoutX(600);
+                stock2.setLayoutY(335);
+                stock2.getStyleClass().add("stockbox");
+                ((Group) scene2.getRoot()).getChildren().add(stock2);
 
-            Button stock3 = new Button();
-            stock3.setText("3. " + goombi.get(2).getKey());
-            stock3.setMinSize(200, 75);
-            stock3.setLayoutX(600);
-            stock3.setLayoutY(450);
-            stock3.getStyleClass().add("stockbox");
-            ((Group) scene2.getRoot()).getChildren().add(stock3);
+                Button stock3 = new Button();
+                stock3.setText("3. " + goombi.get(2).getKey());
+                stock3.setMinSize(200, 75);
+                stock3.setLayoutX(600);
+                stock3.setLayoutY(450);
+                stock3.getStyleClass().add("stockbox");
+                ((Group) scene2.getRoot()).getChildren().add(stock3);
 
-            Button stock4 = new Button();
-            stock4.setText("4. " + goombi.get(3).getKey());
-            stock4.setMinSize(200, 75);
-            stock4.setLayoutX(600);
-            stock4.setLayoutY(565);
-            stock4.getStyleClass().add("stockbox");
-            ((Group) scene2.getRoot()).getChildren().add(stock4);
+                Button stock4 = new Button();
+                stock4.setText("4. " + goombi.get(3).getKey());
+                stock4.setMinSize(200, 75);
+                stock4.setLayoutX(600);
+                stock4.setLayoutY(565);
+                stock4.getStyleClass().add("stockbox");
+                ((Group) scene2.getRoot()).getChildren().add(stock4);
 
-            Button stock5 = new Button();
-            stock5.setText("5. " + goombi.get(4).getKey());
-            stock5.setMinSize(200, 75);
-            stock5.setLayoutX(600);
-            stock5.setLayoutY(680);
-            stock5.getStyleClass().add("stockbox");
-            ((Group) scene2.getRoot()).getChildren().add(stock5);
+                Button stock5 = new Button();
+                stock5.setText("5. " + goombi.get(4).getKey());
+                stock5.setMinSize(200, 75);
+                stock5.setLayoutX(600);
+                stock5.setLayoutY(680);
+                stock5.getStyleClass().add("stockbox");
+                ((Group) scene2.getRoot()).getChildren().add(stock5);
 
 
-
-            //Set the scene
-            for(int i = 0; i < googoo.size(); i++) {
-                ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
+                //Set the scene
+                for (int i = 0; i < googoo.size(); i++) {
+                    ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
+                }
             }
         });
 
