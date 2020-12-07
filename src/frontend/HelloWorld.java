@@ -33,7 +33,7 @@ public class HelloWorld extends Application {
     public void start(Stage primaryStage) throws FileNotFoundException{
 
         GridPane root = new GridPane();
-
+        BackendController bc = new BackendController();
 
         Scene scene = new Scene(root, 1250, 800);
 
@@ -163,6 +163,7 @@ public class HelloWorld extends Application {
         fetchButton.setLayoutY(185);
         fetchButton.getStyleClass().add("button1");
         ((Group)scene2.getRoot()).getChildren().add(fetchButton);
+        fetchButton.setOnAction(e ->  bc.fetchStocks());
 
         Button btn = new Button();
         btn.setText("Start");
@@ -173,23 +174,14 @@ public class HelloWorld extends Application {
         ((Group)scene2.getRoot()).getChildren().add(btn);
         btn.setOnAction(e -> {
             // Shaddy's List Function
-            BackendController bc = new BackendController();
-
             boolean buttonSel = false;
             ArrayList<Pair<String,Long>> goombi = new ArrayList<>();
             if(button_1.isSelected()){
-                bc.fetchStocks();
-                goombi = bc.volumeQuery(btn2.isSelected(),true);
+                goombi = bc.volumeQuery(btn2.isSelected(),!highLowButton.isSelected());
                 buttonSel = true;
             }
             else if(button_2.isSelected()){
-                bc.fetchStocks();
-                goombi = bc.volumeQuery(btn2.isSelected(),true);
-                buttonSel = true;
-            }
-            else if(highLowButton.isSelected()){
-                bc.fetchStocks();
-                goombi = bc.volumeQuery(btn2.isSelected(),true);
+                //goombi = bc.relativeStrength(btn2.isSelected(),!highLowButton.isSelected());
                 buttonSel = true;
             }
             else{
