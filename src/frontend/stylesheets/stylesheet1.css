@@ -57,6 +57,36 @@
 
 }
 
+.highlow {
+     -fx-aligntment: center;
+     -fx-background-color: seagreen;
+     -fx-border: none;
+     -fx-text-fill: white;
+     -fx-font-family: "Comic Sans MS";
+
+     -fx-text-align: center;
+     -fx-text-decoration: none;
+     -fx-display: inline-block;
+     -fx-font-size: 32px;
+
+
+ }
+
+.highlow:selected {
+    -fx-aligntment: center;
+    -fx-background-color: tomato;
+    -fx-border: none;
+    -fx-text-fill: white;
+    -fx-font-family: "Comic Sans MS";
+
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size: 32px;
+
+
+}
+
 .stockbox {
     -fx-aligntment: center;
     -fx-background-color: white;

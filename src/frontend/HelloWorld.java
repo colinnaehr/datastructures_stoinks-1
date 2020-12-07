@@ -111,23 +111,48 @@ public class HelloWorld extends Application {
         ToggleButton button_1 = new ToggleButton("option 1");
         //ToggleButton button_1 = new ToggleButton("option 1");
         ToggleButton button_2 = new ToggleButton("option 2");
-        ToggleButton button_3 = new ToggleButton("option 3");
+        //ToggleButton button_3 = new ToggleButton("option 3");
         button_1.setToggleGroup(TheGroup);
         button_2.setToggleGroup(TheGroup);
-        button_3.setToggleGroup(TheGroup);
+        //button_3.setToggleGroup(TheGroup);
         button_1.setLayoutX(18);
         button_1.setLayoutY(350);
         button_2.setLayoutX(18);
         button_2.setLayoutY(450);
-        button_3.setLayoutX(18);
-        button_3.setLayoutY(550);
+        //button_3.setLayoutX(18);
+        //button_3.setLayoutY(550);
         button_1.setMinSize(500, 85);
         button_2.setMinSize(500, 85);
-        button_3.setMinSize(500, 85);
+        //button_3.setMinSize(500, 85);
         button_1.getStyleClass().add("button1");
         button_2.getStyleClass().add("button1");
-        button_3.getStyleClass().add("button1");
-        ((Group) scene2.getRoot()).getChildren().addAll(button_1, button_2, button_3);
+        //button_3.getStyleClass().add("button1");
+        ((Group) scene2.getRoot()).getChildren().addAll(button_1, button_2);
+
+        ToggleButton highLowButton = new ToggleButton();
+        highLowButton.setText("Highest Values");
+        highLowButton.setLayoutX(18);
+        highLowButton.setLayoutY(550);
+        highLowButton.setMinSize(500, 85);
+        highLowButton.getStyleClass().add("highlow");
+        ((Group)scene2.getRoot()).getChildren().add(highLowButton);
+
+        highLowButton.setOnAction(new EventHandler<ActionEvent>() {
+            boolean dataType = true;
+            @Override
+            public void handle(ActionEvent event) {
+
+                if(dataType) {
+                    highLowButton.setText("Lowest Values");
+                }
+                else{
+                    highLowButton.setText("Highest Values");
+                }
+                dataType ^= true;
+            }
+        });
+
+
 
 
         Button btn = new Button();
@@ -153,7 +178,7 @@ public class HelloWorld extends Application {
                 goombi = bc.volumeQuery(btn2.isSelected(),true);
                 buttonSel = true;
             }
-            else if(button_3.isSelected()){
+            else if(highLowButton.isSelected()){
                 bc.fetchStocks();
                 goombi = bc.volumeQuery(btn2.isSelected(),true);
                 buttonSel = true;
