@@ -4,7 +4,10 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class StockPrices {
+public class Stock {
+
+    private String ticker = "";
+
 
     @SerializedName("prices")
     @Expose
@@ -28,4 +31,11 @@ public class StockPrices {
         return sum;
     }
 
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
+
+    public String getTicker() {
+        return ticker;
+    }
 }
