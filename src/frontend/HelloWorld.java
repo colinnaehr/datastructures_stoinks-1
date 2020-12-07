@@ -58,7 +58,10 @@ public class HelloWorld extends Application {
         ((Group)scene2.getRoot()).getChildren().add(rect3);
 
         Image image = new Image(new FileInputStream("src/frontend/f.gif"));
-        ImageView iv = new ImageView();
+        ImageView iv = new ImageView(image);
+        iv.setX(25);
+        iv.setY(25);
+        ((Group)scene2.getRoot()).getChildren().add(iv);
 
 
 
