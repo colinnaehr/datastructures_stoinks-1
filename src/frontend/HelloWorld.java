@@ -89,6 +89,14 @@ public class HelloWorld extends Application {
             }
         });
 
+        Text dataMethod = new Text();
+        dataMethod.setText("Data Method");
+        dataMethod.setLayoutX(205);
+        dataMethod.setLayoutY(335);
+        dataMethod.getStyleClass().add("datamethod");
+        //t.setFill(Color.WHITE);
+        ((Group)scene2.getRoot()).getChildren().add(dataMethod);
+
         ToggleGroup TheGroup = new ToggleGroup();
         ToggleButton button_1 = new ToggleButton("option 1");
         ToggleButton button_2 = new ToggleButton("option 2");

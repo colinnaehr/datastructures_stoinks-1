@@ -19,6 +19,13 @@
     -fx-fill: white;
 }
 
+.datamethod {
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-alignment: center;
+    -fx-font-size: 20;
+    -fx-fill: white;
+}
+
 .button1 {
     -fx-aligntment: center;
     -fx-background-color: coral;
