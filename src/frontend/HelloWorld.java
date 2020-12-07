@@ -29,6 +29,7 @@ public class HelloWorld extends Application {
 
         GridPane root = new GridPane();
 
+
         Scene scene = new Scene(root, 1250, 800);
 
         Scene scene2 = new Scene(new Group());
@@ -63,6 +64,32 @@ public class HelloWorld extends Application {
         //t.setFill(Color.WHITE);
         ((Group)scene2.getRoot()).getChildren().add(t);
 
+        ToggleButton btn2 = new ToggleButton();
+        btn2.setText("Retrieval Method 1");
+        btn2.setMinSize(500, 85);
+        btn2.setLayoutX(18);
+        btn2.setLayoutY(300);
+        btn2.getStyleClass().add("button1");
+
+        ((Group) scene2.getRoot()).getChildren().add(btn2);
+
+        btn2.setOnAction(new EventHandler<ActionEvent>() {
+            boolean dataType = true;
+            @Override
+            public void handle(ActionEvent event) {
+
+                if(dataType) {
+                    btn2.setText("Retrieval Method 2");
+                }
+                else{
+                    btn2.setText("Retrieval Method 1");
+                }
+                dataType ^= true;
+            }
+        });
+
+
+
         Button btn = new Button();
         btn.setText("Fetch Data");
         btn.setMinSize(500, 85);
@@ -74,7 +101,8 @@ public class HelloWorld extends Application {
             // Shaddy's List Function
             BackendController bc = new BackendController();
             bc.fetchStocks();
-            ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(true);
+            System.out.println(btn2.isSelected());
+            ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(btn2.isSelected());
 
             ArrayList<Text> googoo = new ArrayList<>();
             for(int i = 0; i < 5; i++) {
@@ -99,35 +127,6 @@ public class HelloWorld extends Application {
             }
         });
 
-
-        ToggleButton btn2 = new ToggleButton();
-
-
-
-        btn2.setText("Retrieval Method 1");
-        btn2.setMinSize(500, 85);
-        btn2.setLayoutX(18);
-        btn2.setLayoutY(300);
-        btn2.getStyleClass().add("button1");
-
-
-        ((Group) scene2.getRoot()).getChildren().add(btn2);
-
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-            boolean dataType = true;
-            @Override
-            public void handle(ActionEvent event) {
-
-                if(dataType) {
-                    btn2.setText("Retrieval Method 2");
-                }
-                else{
-                    btn2.setText("Retrieval Method 1");
-                }
-                dataType ^= true;
-
-            }
-        });
 
     }
     public static void main(String[] args) {
