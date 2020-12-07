@@ -27,10 +27,7 @@ public class HelloWorld extends Application {
 
         GridPane root = new GridPane();
 
-
         Scene scene = new Scene(root, 1250, 800);
-
-
 
         Scene scene2 = new Scene(new Group());
         scene2.getStylesheets().add(getClass().getResource("stylesheets/stylesheet1.css").toExternalForm());
@@ -71,6 +68,34 @@ public class HelloWorld extends Application {
         btn.setLayoutY(190);
         btn.getStyleClass().add("button1");
         ((Group)scene2.getRoot()).getChildren().add(btn);
+        btn.setOnAction(e -> {
+            // Shaddy's List Function
+            BackendController bc = new BackendController();
+            bc.fetchStocks();
+            ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(true);
+
+            ArrayList<Text> googoo = new ArrayList<>();
+            for(int i = 0; i < 5; i++) {
+                Text name = new Text();
+                Text val = new Text();
+                name.setX(600);
+                name.setY(i*40 +300);
+                name.setText(goombi.get(i).getKey());
+                val.setX(900);
+                val.setY(i*40 + 300);
+                String temp = "" + goombi.get(i).getValue();
+                val.setText(temp);
+                googoo.add(name);
+                googoo.add(val);
+            }
+
+
+
+            //Set the scene
+            for(int i = 0; i < googoo.size(); i++) {
+                ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
+            }
+        });
 
         ToggleButton btn2 = new ToggleButton();
 
@@ -88,46 +113,6 @@ public class HelloWorld extends Application {
         }
         ((Group) scene2.getRoot()).getChildren().add(btn2);
 
-
-        // Shaddy's List Function
-
-        BackendController bc = new BackendController();
-        bc.fetchStocks();
-        ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(true);
-
-        ArrayList<Text> googoo = new ArrayList<>();
-        for(int i = 0; i < 5; i++) {
-            Text name = new Text();
-            Text val = new Text();
-            name.setX(600);
-            name.setY(i*40 +300);
-            name.setText(goombi.get(i).getKey());
-            val.setX(900);
-            val.setY(i*40 + 300);
-            String temp = "" + goombi.get(i).getValue();
-            val.setText(temp);
-            googoo.add(name);
-            googoo.add(val);
-        }
-
-
-
-        //Set the scene
-        for(int i = 0; i < googoo.size(); i++) {
-            ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
-        }
-
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-
-
-
-        //comment
     }
     public static void main(String[] args) {
         launch(args);
