@@ -13,7 +13,7 @@ public class BackendController {
 
     public void fetchStocks(){
         try {
-            File tickersFile = new File("filename.txt");
+            File tickersFile = new File("../src/backend/tickers.txt");
             Scanner reader = new Scanner(tickersFile);
             while (reader.hasNextLine()) {
                 String ticker = reader.nextLine();
