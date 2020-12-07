@@ -10,8 +10,8 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class BackendController {
-    private RequestHandler handler;
-    public ArrayList<Stock> data;
+    private final RequestHandler handler;
+    private final ArrayList<Stock> data;
 
     public BackendController(){
         this.data = new ArrayList<>();
@@ -40,7 +40,6 @@ public class BackendController {
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("No tickers.txt file found.");
-            e.printStackTrace();
         }
     }
 
