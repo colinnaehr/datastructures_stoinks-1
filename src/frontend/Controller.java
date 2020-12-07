@@ -7,6 +7,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
@@ -16,6 +18,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Toggle;
 import javafx.util.Pair;
 
+import java.io.File;
 import java.util.ArrayList;
 
 //import javafx.fxml.FXMLLoader;
@@ -29,6 +32,8 @@ public class Controller extends Application {
     public void start(Stage primaryStage) {
 
         GridPane root = new GridPane();
+
+        ImageView imageView = new ImageView();
 
 
         Scene scene = new Scene(root, 1250, 800);
@@ -129,33 +134,57 @@ public class Controller extends Application {
         btn.setOnAction(e -> {
             // Shaddy's List Function
             BackendController bc = new BackendController();
-            bc.fetchStocks();
-            System.out.println(btn2.isSelected());
-            ArrayList<Pair<String,Long>> goombi = bc.volumeQuery(btn2.isSelected());
 
-            ArrayList<Text> googoo = new ArrayList<>();
-            for(int i = 0; i < 5; i++) {
-                Text name = new Text();
-                Text val = new Text();
-                name.setX(600);
-                name.setY(i*40 +300);
-                name.setText(goombi.get(i).getKey());
-                val.setX(900);
-                val.setY(i*40 + 300);
-                String temp = "" + goombi.get(i).getValue();
-                val.setText(temp);
-                googoo.add(name);
-                googoo.add(val);
+
+
+
+            //NEW STUFF
+            boolean buttonSel = false;
+            ArrayList<Pair<String,Long>> goombi = new ArrayList<>();
+            if(button_1.isSelected()){
+                bc.fetchStocks();
+                goombi = bc.volumeQuery(btn2.isSelected());
+                buttonSel = true;
+            }
+            else if(button_2.isSelected()){
+                bc.fetchStocks();
+                goombi = bc.volumeQuery(btn2.isSelected());
+                buttonSel = true;
+            }
+            else if(button_3.isSelected()){
+                bc.fetchStocks();
+                goombi = bc.volumeQuery(btn2.isSelected());
+                buttonSel = true;
+            }
+            else{
+                System.out.println("Better luck next time goombi");
+            }
+            if(buttonSel) {
+                ArrayList<Text> googoo = new ArrayList<>();
+                for (int i = 0; i < 5; i++) {
+                    Text name = new Text();
+                    Text val = new Text();
+                    name.setX(600);
+                    name.setY(i * 40 + 300);
+                    name.setText(goombi.get(i).getKey());
+                    val.setX(900);
+                    val.setY(i * 40 + 300);
+                    String temp = "" + goombi.get(i).getValue();
+                    val.setText(temp);
+                    googoo.add(name);
+                    googoo.add(val);
+                }
+
+                //Set the scene
+                for (int i = 0; i < googoo.size(); i++) {
+                    ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
+                }
             }
 
 
 
-            //Set the scene
-            for(int i = 0; i < googoo.size(); i++) {
-                ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
-            }
+
         });
-
 
     }
     public static void main(String[] args) {
