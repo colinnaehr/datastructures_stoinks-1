@@ -47,7 +47,7 @@ public class BackendController {
     public ArrayList<Pair<String,Long>> volumeQuery(boolean priorityQueue){
         ArrayList<Pair<String,Long>> results = new ArrayList<>();
         if (priorityQueue){
-            PriorityQueue<Stock> pq = new PriorityQueue<Stock>(new StockComparator());
+            PriorityQueue<Stock> pq = new PriorityQueue<>(new StockComparator());
             pq.addAll(data);
             for (int i = 0; i < 5; i++){
                 Stock top = pq.peek();
