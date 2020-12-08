@@ -21,7 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import java.util.ArrayList;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 //import javafx.fxml.FXMLLoader;
 
 
@@ -56,13 +56,6 @@ public class HelloWorld extends Application {
         rect3.setLayoutY(150);
         rect3.getStyleClass().add("my-rect3");
         ((Group)scene2.getRoot()).getChildren().add(rect3);
-
-        Image image = new Image(new FileInputStream("src/frontend/f.gif"));
-        ImageView iv = new ImageView(image);
-        iv.setX(25);
-        iv.setY(25);
-        ((Group)scene2.getRoot()).getChildren().add(iv);
-
 
 
 
@@ -140,6 +133,8 @@ public class HelloWorld extends Application {
         highLowButton.getStyleClass().add("highlow");
         ((Group)scene2.getRoot()).getChildren().add(highLowButton);
 
+
+
         highLowButton.setOnAction(new EventHandler<ActionEvent>() {
             boolean dataType = true;
             @Override
@@ -155,6 +150,21 @@ public class HelloWorld extends Application {
             }
         });
 
+        TextField field = new TextField();
+        field.setPromptText("enter date mm/dd/yyyy for RSI");
+        field.setFocusTraversable(false);
+        Text dateOutput = new Text();
+        Button submission = new Button("Submit");
+
+        field.setLayoutX(18);
+        field.setLayoutY(655);
+        field.setMinSize(500,20);
+        submission.setLayoutX(518);
+        submission.setLayoutY(655);
+        submission.setMinSize(40,20);
+        submission.getStyleClass().add("submits");
+        ((Group)scene2.getRoot()).getChildren().addAll(field,dateOutput,submission);
+
 
         Button fetchButton = new Button();
         fetchButton.setText("Fetch Data");
@@ -164,6 +174,14 @@ public class HelloWorld extends Application {
         fetchButton.getStyleClass().add("button1");
         ((Group)scene2.getRoot()).getChildren().add(fetchButton);
         fetchButton.setOnAction(e ->  bc.fetchStocks());
+
+        Image image = new Image(getClass().getResource("f.gif").toExternalForm());
+        ImageView iv = new ImageView(image);
+        iv.setX(0);
+        iv.setY(0);
+        iv.setFitWidth(300);
+        iv.setPreserveRatio(true);
+        ((Group)scene2.getRoot()).getChildren().add(iv);
 
         Button btn = new Button();
         btn.setText("Start");

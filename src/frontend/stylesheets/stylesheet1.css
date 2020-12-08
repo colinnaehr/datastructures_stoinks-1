@@ -119,3 +119,18 @@
 
 
 }
+
+.submits {
+    -fx-aligntment: center;
+    -fx-background-color: coral;
+    -fx-border: none;
+    -fx-text-fill: white;
+    -fx-font-family: "Comic Sans MS";
+
+    -fx-text-align: center;
+    -fx-text-decoration: none;
+    -fx-display: inline-block;
+    -fx-font-size:12px;
+
+
+}
