@@ -278,7 +278,7 @@ public class HelloWorld extends Application {
             else{
                 System.out.println("Better luck next time goombi");
                 ErrorMSG select = new ErrorMSG();
-                select.msg("Error","Select an option");
+                select.msg("Please Select a Data Method","Error");
             }
             if(buttonSel) {
                 ArrayList<Text> googoo = new ArrayList<>();

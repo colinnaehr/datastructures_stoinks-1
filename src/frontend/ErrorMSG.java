@@ -19,12 +19,15 @@ public class ErrorMSG {
     window.setMinWidth(500);
     Label label = new Label();
     label.setText(name);
+
     Button close = new Button("Close");
     close.setOnAction(e -> window.close());
 
     VBox layout = new VBox(10);
     layout.getChildren().addAll(label,close);
     layout.setAlignment(Pos.CENTER);
+
+    //layout.getStyleClass().add("button");
 
     Scene scene = new Scene(layout);
     window.setScene(scene);
