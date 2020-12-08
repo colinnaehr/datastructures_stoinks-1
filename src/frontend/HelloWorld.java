@@ -196,6 +196,47 @@ public class HelloWorld extends Application {
         btn.setLayoutY(700);
         btn.getStyleClass().add("button2");
         ((Group)scene2.getRoot()).getChildren().add(btn);
+
+
+        /////////////////////////////////////////////////////////////
+        Text stock1T = new Text();
+        stock1T.setLayoutX(860);
+        stock1T.setLayoutY(240);
+        stock1T.getStyleClass().add("valuez");
+        ((Group) scene2.getRoot()).getChildren().add(stock1T);
+
+        Text stock2T = new Text();
+        stock2T.setLayoutX(860);
+        stock2T.setLayoutY(340);
+        stock2T.getStyleClass().add("valuez");
+        ((Group) scene2.getRoot()).getChildren().add(stock2T);
+
+        Text stock3T = new Text();
+
+        stock3T.setLayoutX(860);
+        stock3T.setLayoutY(440);
+        stock3T.getStyleClass().add("valuez");
+        ((Group) scene2.getRoot()).getChildren().add(stock3T);
+
+        Text stock4T = new Text();
+
+        stock4T.setLayoutX(860);
+        stock4T.setLayoutY(540);
+        stock4T.getStyleClass().add("valuez");
+        ((Group) scene2.getRoot()).getChildren().add(stock4T);
+
+        Text stock5T = new Text();
+
+        stock5T.setLayoutX(860);
+        stock5T.setLayoutY(640);
+        stock5T.getStyleClass().add("valuez");
+        ((Group) scene2.getRoot()).getChildren().add(stock5T);
+
+
+
+
+        //////////////////////////////////////////////////////////////
+
         btn.setOnAction(e -> {
             // Shaddy's List Function
             boolean buttonSel = false;
@@ -232,12 +273,8 @@ public class HelloWorld extends Application {
                 stock1.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock1);
 
-                Text stock1T = new Text();
                 stock1T.setText(goombi.get(0).getValue().toString());
-                stock1T.setLayoutX(860);
-                stock1T.setLayoutY(240);
-                stock1T.getStyleClass().add("valuez");
-                ((Group) scene2.getRoot()).getChildren().add(stock1T);
+
 
                 Button stock2 = new Button();
                 stock2.setText("2. " + goombi.get(1).getKey());
@@ -247,12 +284,7 @@ public class HelloWorld extends Application {
                 stock2.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock2);
 
-                Text stock2T = new Text();
                 stock2T.setText(goombi.get(1).getValue().toString());
-                stock2T.setLayoutX(860);
-                stock2T.setLayoutY(340);
-                stock2T.getStyleClass().add("valuez");
-                ((Group) scene2.getRoot()).getChildren().add(stock2T);
 
                 Button stock3 = new Button();
                 stock3.setText("3. " + goombi.get(2).getKey());
@@ -262,12 +294,7 @@ public class HelloWorld extends Application {
                 stock3.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock3);
 
-                Text stock3T = new Text();
                 stock3T.setText(goombi.get(2).getValue().toString());
-                stock3T.setLayoutX(860);
-                stock3T.setLayoutY(440);
-                stock3T.getStyleClass().add("valuez");
-                ((Group) scene2.getRoot()).getChildren().add(stock3T);
 
                 Button stock4 = new Button();
                 stock4.setText("4. " + goombi.get(3).getKey());
@@ -277,12 +304,7 @@ public class HelloWorld extends Application {
                 stock4.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock4);
 
-                Text stock4T = new Text();
                 stock4T.setText(goombi.get(3).getValue().toString());
-                stock4T.setLayoutX(860);
-                stock4T.setLayoutY(540);
-                stock4T.getStyleClass().add("valuez");
-                ((Group) scene2.getRoot()).getChildren().add(stock4T);
 
                 Button stock5 = new Button();
                 stock5.setText("5. " + goombi.get(4).getKey());
@@ -292,12 +314,7 @@ public class HelloWorld extends Application {
                 stock5.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock5);
 
-                Text stock5T = new Text();
                 stock5T.setText(goombi.get(4).getValue().toString());
-                stock5T.setLayoutX(860);
-                stock5T.setLayoutY(640);
-                stock5T.getStyleClass().add("valuez");
-                ((Group) scene2.getRoot()).getChildren().add(stock5T);
 
 
                 //Set the scene
