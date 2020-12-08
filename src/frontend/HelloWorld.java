@@ -72,29 +72,7 @@ public class HelloWorld extends Application {
         //t.setFill(Color.WHITE);
         ((Group)scene2.getRoot()).getChildren().add(t);
 
-        ToggleButton btn2 = new ToggleButton();
-        btn2.setText("Retrieval Method 1");
-        btn2.setMinSize(500, 85);
-        btn2.setLayoutX(18);
-        btn2.setLayoutY(700);
-        btn2.getStyleClass().add("button1");
 
-        ((Group) scene2.getRoot()).getChildren().add(btn2);
-
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-            boolean dataType = true;
-            @Override
-            public void handle(ActionEvent event) {
-
-                if(dataType) {
-                    btn2.setText("Retrieval Method 2");
-                }
-                else{
-                    btn2.setText("Retrieval Method 1");
-                }
-                dataType ^= true;
-            }
-        });
 
         Text dataMethod = new Text();
         dataMethod.setText("Data Method");
@@ -129,10 +107,12 @@ public class HelloWorld extends Application {
         ToggleButton highLowButton = new ToggleButton();
         highLowButton.setText("Highest Values");
         highLowButton.setLayoutX(18);
-        highLowButton.setLayoutY(550);
+        highLowButton.setLayoutY(595);
         highLowButton.setMinSize(500, 85);
         highLowButton.getStyleClass().add("highlow");
         ((Group)scene2.getRoot()).getChildren().add(highLowButton);
+
+
 
 
 
@@ -151,6 +131,30 @@ public class HelloWorld extends Application {
             }
         });
 
+        ToggleButton btn2 = new ToggleButton();
+        btn2.setText("Retrieval Method 1");
+        btn2.setMinSize(500, 85);
+        btn2.setLayoutX(18);
+        btn2.setLayoutY(700);
+        btn2.getStyleClass().add("button1");
+
+        ((Group) scene2.getRoot()).getChildren().add(btn2);
+
+        btn2.setOnAction(new EventHandler<ActionEvent>() {
+            boolean dataType = true;
+            @Override
+            public void handle(ActionEvent event) {
+
+                if(dataType) {
+                    btn2.setText("Retrieval Method 2");
+                }
+                else{
+                    btn2.setText("Retrieval Method 1");
+                }
+                dataType ^= true;
+            }
+        });
+
         String date = "";
         TextField field = new TextField();
         field.setPromptText("enter date mm/dd/yyyy for RSI");
@@ -159,10 +163,10 @@ public class HelloWorld extends Application {
         Button submission = new Button("Submit");
 
         field.setLayoutX(18);
-        field.setLayoutY(655);
+        field.setLayoutY(550);
         field.setMinSize(442,20);
         submission.setLayoutX(460);
-        submission.setLayoutY(655);
+        submission.setLayoutY(550);
         submission.setMinSize(40,20);
         submission.getStyleClass().add("submits");
         ((Group)scene2.getRoot()).getChildren().addAll(field,dateOutput,submission);
