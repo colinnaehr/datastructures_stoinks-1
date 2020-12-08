@@ -7,11 +7,11 @@ public class RequestTest {
         BackendController controller = new BackendController();
         controller.fetchStocks();
         System.out.println("    ");
-        var c = controller.volumeQuery(false,false);
-        for (int i = 0; i < 5; i++){
-            System.out.println(c.get(i).getKey());
-        }
-        var r = controller.relativeStrength("12/3/2020",true,false,14);
+//        var c = controller.volumeQuery(false,false);
+//        for (int i = 0; i < 5; i++){
+//            System.out.println(c.get(i).getKey());
+//        }
+        var r = controller.relativeStrength("3/31/2010",true,false,14);
         for (int i = 0; i < 5; i++){
             System.out.println(r.get(i).getKey());
             System.out.println(r.get(i).getValue());
