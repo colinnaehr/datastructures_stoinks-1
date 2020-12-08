@@ -13,9 +13,16 @@
 }
 
 .title {
+     -fx-font-family: "Comic Sans MS";
+     -fx-text-alignment: center;
+     -fx-font-size: 100;
+     -fx-fill: white;
+ }
+
+.valuez {
     -fx-font-family: "Comic Sans MS";
     -fx-text-alignment: center;
-    -fx-font-size: 100;
+    -fx-font-size: 36;
     -fx-fill: white;
 }
 
