@@ -131,8 +131,9 @@ public class HelloWorld extends Application {
             }
         });
 
+
         ToggleButton btn2 = new ToggleButton();
-        btn2.setText("Retrieval Method 1");
+        btn2.setText("Merge Sort / Hashmap");
         btn2.setMinSize(500, 85);
         btn2.setLayoutX(18);
         btn2.setLayoutY(700);
@@ -144,14 +145,12 @@ public class HelloWorld extends Application {
             boolean dataType = true;
             @Override
             public void handle(ActionEvent event) {
-
-                if(dataType) {
-                    btn2.setText("Retrieval Method 2");
-                }
-                else{
-                    btn2.setText("Retrieval Method 1");
-                }
-                dataType ^= true;
+                    if (dataType) {
+                        btn2.setText("HeapSort / Red & Black Tree");
+                    } else {
+                        btn2.setText("Merge Sort / Hashmap");
+                    }
+                    dataType ^= true;
             }
         });
 
