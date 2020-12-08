@@ -71,39 +71,42 @@ public class BackendController {
         return results;
     }
 
-    private ArrayList<Pair<Long,Integer>> getRsiDatePairs(Stock stock, int rsiPeriod){
-        var returned = new ArrayList<Pair<Long,Integer>>();
-        for (int i = 0; i < 200 ; i++) {
+    private ArrayList<Pair<Long,Integer>> getRsiDatePairs(Stock stock, int rsiPeriod) {
+        var returned = new ArrayList<Pair<Long, Integer>>();
+        for (int i = 0; i < 200; i++) {
             int extension = 0;
             double summedUpMoves = 0;
             double summedDownMoves = 0;
             int j = i;
-            while (j < i + rsiPeriod + extension){
-                if (stock.getPrices().get(j).getClose() == null){ break; }
+            while (j < i + rsiPeriod + extension) {
+                if (stock.getPrices().get(j).getClose() == null) {
+                    break;
+                }
                 double recent = stock.getPrices().get(j).getClose();
                 double dayBefore;
-                if (stock.getPrices().get(j+1).getClose() != null){
-                    dayBefore = stock.getPrices().get(j+1).getClose();
+                if (stock.getPrices().get(j + 1).getClose() != null) {
+                    dayBefore = stock.getPrices().get(j + 1).getClose();
                 } else {
                     extension++;
-                    dayBefore = stock.getPrices().get(j+2).getClose();
+                    dayBefore = stock.getPrices().get(j + 2).getClose();
                     j++;
                 }
                 double change = recent - dayBefore;
-                if (change > 0){
+                if (change > 0) {
                     summedUpMoves += change;
-                } else if (change < 0){
+                } else if (change < 0) {
                     summedDownMoves += Math.abs(change);
                 }
                 j++;
             }
             double avgUp = summedUpMoves / rsiPeriod;
             double avgDown = summedDownMoves / rsiPeriod;
-            int rsi = (int) (100 - (100/(1+(avgUp/avgDown))));
-            returned.add(new Pair<>((long)stock.getPrices().get(i).getDate(),rsi));
+            int rsi = (int) (100 - (100 / (1 + (avgUp / avgDown))));
+            returned.add(new Pair<>((long) stock.getPrices().get(i).getDate(), rsi));
         }
         return returned;
     }
+
 
     public ArrayList<Pair<String,Integer>> relativeStrength(String date, boolean treeMap, boolean highest , int rsiPeriod) {
         date += " 9:30:00";
@@ -117,63 +120,28 @@ public class BackendController {
         }
         long selectedDateSeconds = d.getTime() / 1000;
 
-
-        if (treeMap){
-            // tree map of tree maps
-            var stockRSIs = new TreeMap<String,TreeMap<Long,Integer>>();
-            // initially store time, rsi pairs for each stock
-            for (Stock stock : stocks){
-                System.out.println(stock.getTicker());
-                TreeMap<Long,Integer> rsiDateMap = new TreeMap<>();
-                for (Pair<Long,Integer> p : getRsiDatePairs(stock,rsiPeriod)){
-                    rsiDateMap.put(p.getKey(),p.getValue());
-                }
-                stockRSIs.put(stock.getTicker(),rsiDateMap);
+        HashMap<String, Map<Long,Integer>> stockRSIs = new HashMap<>();
+        
+        for (Stock stock : stocks){
+            System.out.println(stock.getTicker());
+            Map<Long,Integer> rsiDateMap = treeMap ? new TreeMap<>() : new HashMap<>();
+            for (Pair<Long,Integer> p : getRsiDatePairs(stock,rsiPeriod)){
+                rsiDateMap.put(p.getKey(),p.getValue());
             }
-            // calculate and sort using merge sort with Collections.sort()
-            var stockRSIsAtTime = new ArrayList<Pair<String,Integer>>();
-            for (Stock stock : stocks){
-                int stockRsiAtTime = stockRSIs.get(stock.getTicker()).get(selectedDateSeconds);
-                stockRSIsAtTime.add(new Pair<>(stock.getTicker(),stockRsiAtTime));
-                stockRSIsAtTime.sort(new StockRSIComparator());
-            }
-            var returned = new ArrayList<Pair<String,Integer>>();
-            for (int i = 0; i < 5; i++){
-                returned.add(stockRSIsAtTime.get(i));
-            }
-            return returned;
-        } else {
-
-
-            // hash map of hash maps
-            var stockRSIs = new HashMap<String,HashMap<Long,Integer>>();
-            for (Stock stock : stocks){
-                System.out.println(stock.getTicker());
-                HashMap<Long,Integer> rsiDateMap = new HashMap<>();
-                for (Pair<Long,Integer> p : getRsiDatePairs(stock,rsiPeriod)){
-                    rsiDateMap.put(p.getKey(),p.getValue());
-                }
-                stockRSIs.put(stock.getTicker(),rsiDateMap);
-            }
-            // calculate and sort using merge sort with Collections.sort()
-            var stockRSIsAtTime = new ArrayList<Pair<String,Integer>>();
-            for (Stock stock : stocks){
-                int stockRsiAtTime = stockRSIs.get(stock.getTicker()).get(selectedDateSeconds);
-                stockRSIsAtTime.add(new Pair<>(stock.getTicker(),stockRsiAtTime));
-                stockRSIsAtTime.sort(new StockRSIComparator());
-            }
-            var returned = new ArrayList<Pair<String,Integer>>();
-            if (highest){
-                for (int i = 0; i < 5; i++){
-                    returned.add(stockRSIsAtTime.get(i));
-                }
-            } else {
-                for (int i = stockRSIsAtTime.size() - 1; i > stockRSIsAtTime.size() - 6; i--){
-                    returned.add(stockRSIsAtTime.get(i));
-                }
-            }
-            return returned;
+            stockRSIs.put(stock.getTicker(),rsiDateMap);
         }
+        // calculate and sort using merge sort with Collections.sort()
+        var stockRSIsAtTime = new ArrayList<Pair<String,Integer>>();
+        for (Stock stock : stocks){
+            int stockRsiAtTime = stockRSIs.get(stock.getTicker()).get(selectedDateSeconds);
+            stockRSIsAtTime.add(new Pair<>(stock.getTicker(),stockRsiAtTime));
+            stockRSIsAtTime.sort(new StockRSIComparator());
+        }
+        var returned = new ArrayList<Pair<String,Integer>>();
+        for (int i = 0; i < 5; i++){
+            returned.add(stockRSIsAtTime.get(i));
+        }
+        return returned;
     }
 }
 
