@@ -158,8 +158,8 @@ public class HelloWorld extends Application {
 
         field.setLayoutX(18);
         field.setLayoutY(655);
-        field.setMinSize(500,20);
-        submission.setLayoutX(518);
+        field.setMinSize(442,20);
+        submission.setLayoutX(460);
         submission.setLayoutY(655);
         submission.setMinSize(40,20);
         submission.getStyleClass().add("submits");
@@ -175,7 +175,7 @@ public class HelloWorld extends Application {
         ((Group)scene2.getRoot()).getChildren().add(fetchButton);
         fetchButton.setOnAction(e ->  bc.fetchStocks());
 
-        Image image = new Image(getClass().getResource("f.gif").toExternalForm());
+        Image image = new Image(getClass().getResource("f.PNG").toExternalForm());
         ImageView iv = new ImageView(image);
         iv.setX(0);
         iv.setY(0);
@@ -220,7 +220,7 @@ public class HelloWorld extends Application {
                 Button stock1 = new Button();
                 stock1.setText("1. " + goombi.get(0).getKey());
                 stock1.setMinSize(200, 75);
-                stock1.setLayoutX(600);
+                stock1.setLayoutX(635);
                 stock1.setLayoutY(190);
                 stock1.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock1);
@@ -228,7 +228,7 @@ public class HelloWorld extends Application {
                 Button stock2 = new Button();
                 stock2.setText("2. " + goombi.get(1).getKey());
                 stock2.setMinSize(200, 75);
-                stock2.setLayoutX(600);
+                stock2.setLayoutX(635);
                 stock2.setLayoutY(290);
                 stock2.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock2);
@@ -236,7 +236,7 @@ public class HelloWorld extends Application {
                 Button stock3 = new Button();
                 stock3.setText("3. " + goombi.get(2).getKey());
                 stock3.setMinSize(200, 75);
-                stock3.setLayoutX(600);
+                stock3.setLayoutX(635);
                 stock3.setLayoutY(390);
                 stock3.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock3);
@@ -244,7 +244,7 @@ public class HelloWorld extends Application {
                 Button stock4 = new Button();
                 stock4.setText("4. " + goombi.get(3).getKey());
                 stock4.setMinSize(200, 75);
-                stock4.setLayoutX(600);
+                stock4.setLayoutX(635);
                 stock4.setLayoutY(490);
                 stock4.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock4);
@@ -252,7 +252,7 @@ public class HelloWorld extends Application {
                 Button stock5 = new Button();
                 stock5.setText("5. " + goombi.get(4).getKey());
                 stock5.setMinSize(200, 75);
-                stock5.setLayoutX(600);
+                stock5.setLayoutX(635);
                 stock5.setLayoutY(590);
                 stock5.getStyleClass().add("stockbox");
                 ((Group) scene2.getRoot()).getChildren().add(stock5);
