@@ -26,6 +26,13 @@
     -fx-fill: white;
 }
 
+.timez {
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-alignment: center;
+    -fx-font-size: 24;
+    -fx-fill: white;
+}
+
 .datamethod {
     -fx-font-family: "Comic Sans MS";
     -fx-text-alignment: center;

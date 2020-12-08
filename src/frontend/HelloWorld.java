@@ -203,6 +203,15 @@ public class HelloWorld extends Application {
 
 
         /////////////////////////////////////////////////////////////
+        Text timer = new Text();
+
+        timer.setText("Timer: ");
+        timer.setLayoutX(1000);
+        timer.setLayoutY(140);
+        timer.getStyleClass().add("timez");
+        ((Group) scene2.getRoot()).getChildren().add(timer);
+
+
         Text stock1T = new Text();
         stock1T.setLayoutX(860);
         stock1T.setLayoutY(240);
@@ -243,14 +252,28 @@ public class HelloWorld extends Application {
 
         btn.setOnAction(e -> {
             // Shaddy's List Function
+
             boolean buttonSel = false;
+
             ArrayList<Pair<String,Long>> goombi = new ArrayList<>();
             if(button_1.isSelected()){
+                long startTime = System.nanoTime();
                 goombi = bc.volumeQuery(btn2.isSelected(),!highLowButton.isSelected());
+                long endtime = System.nanoTime();
+                long time = endtime-startTime;
+                timer.setText("Timer: " + time + " ns");
+                System.out.println(time);
+
                 buttonSel = true;
+
             }
             else if(button_2.isSelected()){
+                long startTime = System.nanoTime();
                 goombi = bc.relativeStrength(field.getText(),btn2.isSelected(),!highLowButton.isSelected(),14);
+                long endtime = System.nanoTime();
+                long time = endtime-startTime;
+                timer.setText("Timer: " + time + " ns");
+                System.out.println(time);
                 buttonSel = true;
             }
             else{
@@ -325,6 +348,8 @@ public class HelloWorld extends Application {
                 for (int i = 0; i < googoo.size(); i++) {
                     ((Group) scene2.getRoot()).getChildren().add(googoo.get(i));
                 }
+
+
             }
         });
 
