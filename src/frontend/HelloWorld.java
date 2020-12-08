@@ -150,6 +150,7 @@ public class HelloWorld extends Application {
             }
         });
 
+        String date = "";
         TextField field = new TextField();
         field.setPromptText("enter date mm/dd/yyyy for RSI");
         field.setFocusTraversable(false);
@@ -164,6 +165,10 @@ public class HelloWorld extends Application {
         submission.setMinSize(40,20);
         submission.getStyleClass().add("submits");
         ((Group)scene2.getRoot()).getChildren().addAll(field,dateOutput,submission);
+        submission.setOnAction(e-> {
+            System.out.println(field.getText());
+        });
+
 
 
         Button fetchButton = new Button();
@@ -199,7 +204,7 @@ public class HelloWorld extends Application {
                 buttonSel = true;
             }
             else if(button_2.isSelected()){
-                //goombi = bc.relativeStrength(btn2.isSelected(),!highLowButton.isSelected());
+                goombi = bc.relativeStrength(field.getText(),btn2.isSelected(),!highLowButton.isSelected(),14);
                 buttonSel = true;
             }
             else{
@@ -207,6 +212,7 @@ public class HelloWorld extends Application {
             }
             if(buttonSel) {
                 ArrayList<Text> googoo = new ArrayList<>();
+
 
                 for (int i = 0; i < 5; i++) {
                     Text name = new Text();
