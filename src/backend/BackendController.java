@@ -66,14 +66,13 @@ public class BackendController {
                     results.add(new Pair<>(s.getTicker(),s.getTotalVolume()));
                 }
             }
-
         }
         return results;
     }
 
     private ArrayList<Pair<Long,Integer>> getRsiDatePairs(Stock stock, int rsiPeriod) {
         var returned = new ArrayList<Pair<Long, Integer>>();
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 220-rsiPeriod; i++) {
             int extension = 0;
             double summedUpMoves = 0;
             double summedDownMoves = 0;
@@ -118,10 +117,11 @@ public class BackendController {
             e.printStackTrace();
             return null;
         }
+
         long selectedDateSeconds = d.getTime() / 1000;
 
         HashMap<String, Map<Long,Integer>> stockRSIs = new HashMap<>();
-        
+        // fill map of all stockRSIs
         for (Stock stock : stocks){
             System.out.println(stock.getTicker());
             Map<Long,Integer> rsiDateMap = treeMap ? new TreeMap<>() : new HashMap<>();
@@ -133,7 +133,12 @@ public class BackendController {
         // calculate and sort using merge sort with Collections.sort()
         var stockRSIsAtTime = new ArrayList<Pair<String,Integer>>();
         for (Stock stock : stocks){
-            int stockRsiAtTime = stockRSIs.get(stock.getTicker()).get(selectedDateSeconds);
+            int stockRsiAtTime;
+            try {
+                stockRsiAtTime = stockRSIs.get(stock.getTicker()).get(selectedDateSeconds);
+            } catch (Exception e){
+                return null;
+            }
             stockRSIsAtTime.add(new Pair<>(stock.getTicker(),stockRsiAtTime));
             stockRSIsAtTime.sort(new StockRSIComparator());
         }

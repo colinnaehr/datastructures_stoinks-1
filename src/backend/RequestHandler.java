@@ -20,7 +20,6 @@ public class RequestHandler {
             var response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), Stock.class);
         }catch(Exception e){
-            e.printStackTrace();
             return null;
         }
     }
