@@ -35,6 +35,7 @@ public class HelloWorld extends Application {
         GridPane root = new GridPane();
         BackendController bc = new BackendController();
 
+
         Scene scene = new Scene(root, 1250, 800);
 
         Scene scene2 = new Scene(new Group());
